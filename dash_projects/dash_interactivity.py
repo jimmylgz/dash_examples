@@ -13,14 +13,23 @@ airline_data =  pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.
                                    
 # Create a dash application
 app = dash.Dash(__name__)
-
-app.layout = html.Div(children=[html.H1('Airline Performance Dashboard',style={'textAlign': 'center', 'color': '#503D36', 'font-size': 40}),
-                                html.Div(["Input Year", dcc.Input(id='input-year', value='2010', 
-                                type='number', style={'height':'50px', 'font-size': 35},),],
-                                style={}),
+# Build dash app layout
+app.layout = html.Div(children=[ html.H1(),
+                                html.Div(["Input Year: ", dcc.Input()],
+                                style={'font-size': 30}),
                                 html.Br(),
-                                html.Br(),
-                                html.Div(dcc.Graph(id='line-plot')),
+                                html.Br(), 
+                                html.Div([
+                                        html.Div(),
+                                        html.Div()
+                                ], style={'display': 'flex'}),
+    
+                                html.Div([
+                                        html.Div(),
+                                        html.Div()
+                                ], style={'display': 'flex'}),
+                                
+                                html.Div(, style={'width':'65%'})
                                 ])
 
 @app.callback(Output(component_id='line-plot', component_property='figure'),
